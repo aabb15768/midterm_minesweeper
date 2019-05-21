@@ -9,8 +9,8 @@ class TitleBar extends React.Component {
         return(
             <tr>
                 <td className="menu" id="window-title-bar" colSpan={this.props.width}>
-                    <div id="window-title"><img src={mineMenuIrcon}/> Minesweeper</div>
-                    <div id="window-controls"><img src={windowControls}/></div>
+                    <div id="window-title"><img src={mineMenuIrcon} alt="mineMenu"/> Minesweeper</div>
+                    <div id="window-controls"><img src={windowControls} alt="windowControl"/></div>
                 </td>
             </tr>
         );

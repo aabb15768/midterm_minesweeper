@@ -1,10 +1,7 @@
 import React from 'react';
-import start from '../images/start.png';
 import easy from '../images/easy.png';
 import medium from '../images/medium.png';
 import hard from '../images/hard.png';
-import flag from '../images/flag.png';
-import start_7 from '../images/start_7.jpg';
 import Board from './Board';
 
 
@@ -39,7 +36,7 @@ class Game extends React.Component {
         this.setState({
             height: 26,
             width: 26,
-            mineNum: 100,
+            mineNum: 110,
         })
     }
 

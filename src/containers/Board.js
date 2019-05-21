@@ -5,7 +5,7 @@ import deadFace from '../images/dead-face.png';
 import coolFace from '../images/cool-face.png';
 import smileyFace from '../images/smiley-face.png';
 
-var timeElapsed;
+// var timeElapsed;
 var elapsedTime;
 var timerId;
 
@@ -23,7 +23,7 @@ class Board extends React.Component {
     };
 
     componentWillMount() {
-        console.log("willmount");
+        console.log("willMount");
 
         this.setState({cellArr: this.initCellArr(this.props.height, this.props.width, this.props.mineNum)});   
         this.setState({
@@ -33,7 +33,7 @@ class Board extends React.Component {
     }
 
     componentDidMount() {
-        console.log("didmount");
+        console.log("didMount");
         var boardEl = document.getElementById('board');
         this.setState({tableWidth: this.props.width*28});
         boardEl.style.width = this.state.tableWidth;
@@ -47,12 +47,17 @@ class Board extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (JSON.stringify(this.props) !== JSON.stringify(nextProps)) {
             this.setState({
-                cellArr: this.initCellArr(nextProps.height, nextProps.width, nextProps.mineNum),
                 win: false,
                 mineCount: nextProps.mineNum,
                 height: nextProps.height,
                 width: nextProps.width,
             });
+            this.setState({
+                cellArr: this.initCellArr(nextProps.height, nextProps.width, nextProps.mineNum),
+
+            });
+            this.changeMode(nextProps.height, nextProps.width);
+            document.getElementById('bomb-counter').innerText = nextProps.mineNum.toString().padStart(3, '0');
         }
     }
 
@@ -78,10 +83,6 @@ class Board extends React.Component {
         }
         arr = this.buildMine(arr, height, width, mineNum);
         arr = this.getNeighbourMineNum(arr, height, width);
-        this.setState({
-            height: this.props.height,
-            width: this.props.width,
-        });
         return arr;
     };
 
@@ -105,16 +106,17 @@ class Board extends React.Component {
     };
 
     getNeighbourMineNum = (arr, height, width) => {
-        let updatedArr = arr, index = 0;
+        let updatedArr = arr;
         for (let i = 0; i < height; i++) {
             for (let j = 0; j < width; j++) {
-                if (arr[i][j].isMine !== true) {
+                if (updatedArr[i][j].isMine !== true) {
                     let mineNum = 0;
-                    const area = this.traverseBoard(arr[i][j].row, arr[i][j].col, arr, height, width);
+                    const area = this.traverseBoard(updatedArr[i][j].row, updatedArr[i][j].col, updatedArr, height, width);
                     area.map(value => {
                         if (value.isMine) {
                             mineNum++;
                         }
+                        return null;
                     });
                     if (mineNum === 0) {
                         updatedArr[i][j].isEmpty = true;
@@ -127,89 +129,43 @@ class Board extends React.Component {
         return updatedArr;
     };
 
-    // traverseBoard = (row, col, cellArr, height, width) => {
-    //     const targetArr = [];
+    traverseBoard = (row, col, cellArr, height, width) => {
+        const targetArr = [];
 
-    //     if (row > 0) {
-    //         targetArr.push(cellArr[row - 1][col]);
-    //     }
-
-    //     if (row < height - 1) {
-    //         targetArr.push(cellArr[row + 1][col]);
-    //     }
-
-    //     if (col > 0) {
-    //         targetArr.push(cellArr[row][col - 1]);
-    //     }
-
-    //     if (col < width - 1) {
-    //         targetArr.push(cellArr[row][col + 1]);
-    //     }
-
-    //     if (row > 0 && col > 0) {
-    //         targetArr.push(cellArr[row - 1][col - 1]);
-    //     }
-
-    //     if (row > 0 && col < width - 1) {
-    //         targetArr.push(cellArr[row - 1][col + 1]);
-    //     }
-
-    //     if (row < height - 1 && col < width - 1) {
-    //         targetArr.push(cellArr[row + 1][col + 1]);
-    //     }
-
-    //     if (row < height - 1 && col > 0) {
-    //         targetArr.push(cellArr[row + 1][col - 1]);
-    //     }
-
-    //     return targetArr;
-    // };
-
-    traverseBoard(x, y, data) {
-        const el = [];
-
-        //up
-        if (x > 0) {
-            el.push(data[x - 1][y]);
+        if (row > 0) {
+            targetArr.push(cellArr[row - 1][col]);
         }
 
-        //down
-        if (x < this.props.height - 1) {
-            el.push(data[x + 1][y]);
+        if (row < height - 1) {
+            targetArr.push(cellArr[row + 1][col]);
         }
 
-        //left
-        if (y > 0) {
-            el.push(data[x][y - 1]);
+        if (col > 0) {
+            targetArr.push(cellArr[row][col - 1]);
         }
 
-        //right
-        if (y < this.props.width - 1) {
-            el.push(data[x][y + 1]);
+        if (col < width - 1) {
+            targetArr.push(cellArr[row][col + 1]);
         }
 
-        // top left
-        if (x > 0 && y > 0) {
-            el.push(data[x - 1][y - 1]);
+        if (row > 0 && col > 0) {
+            targetArr.push(cellArr[row - 1][col - 1]);
         }
 
-        // top right
-        if (x > 0 && y < this.props.width - 1) {
-            el.push(data[x - 1][y + 1]);
+        if (row > 0 && col < width - 1) {
+            targetArr.push(cellArr[row - 1][col + 1]);
         }
 
-        // bottom right
-        if (x < this.props.height - 1 && y < this.props.width - 1) {
-            el.push(data[x + 1][y + 1]);
+        if (row < height - 1 && col < width - 1) {
+            targetArr.push(cellArr[row + 1][col + 1]);
         }
 
-        // bottom left
-        if (x < this.props.height - 1 && y > 0) {
-            el.push(data[x + 1][y - 1]);
+        if (row < height - 1 && col > 0) {
+            targetArr.push(cellArr[row + 1][col - 1]);
         }
 
-        return el;
-    }
+        return targetArr;
+    };
 
     renderBoard = (arr) => {
         return arr.map((datarow, index) => {
@@ -251,15 +207,8 @@ class Board extends React.Component {
             updatedArr = this.recoverAdj(row, col, updatedArr);
         }
 
-        // if (this.getHidden(updatedArr).length === this.props.mines) {
-        //     win = true;
-        //     this.revealBoard();
-        //     alert("You Win");
-        // }
-
         this.setState({
-            boardData: updatedArr,
-            // mineCount: this.props.mines - this.getFlags(updatedArr).length,
+            cellArr: updatedArr,
             gameWon: win,
         });
     };
@@ -309,7 +258,9 @@ class Board extends React.Component {
                 if (cell.isMine) {
                     mineArray.push(cell);
                 }
+                return null;
             });
+            return null;
         });
 
         return mineArray;
@@ -323,7 +274,9 @@ class Board extends React.Component {
                 if (cell.isFlagged) {
                     flagArray.push(cell);
                 }
+                return null;
             });
+            return null;
         });
 
         return flagArray;
@@ -340,7 +293,9 @@ class Board extends React.Component {
         updatedData.map((datarow) => {
             datarow.map((cell) => {
                 cell.isRevealed = true;
+                return null;
             });
+            return null;
         });
         this.setState({
             cellArr: updatedData
@@ -348,7 +303,7 @@ class Board extends React.Component {
     };
 
     recoverAdj = (row, col, arr) => {
-        let area = this.traverseBoard(row, col, arr);
+        let area = this.traverseBoard(row, col, arr, this.state.height, this.state.width);
         area.map(value => {
             if (!value.isRevealed && (value.isEmpty || !value.isMine)) {
                 arr[value.row][value.col].isRevealed = true;
@@ -356,6 +311,7 @@ class Board extends React.Component {
                     this.recoverAdj(value.row, value.col, arr);
                 }
             }
+            return null;
         });
         return arr;
     };
@@ -364,17 +320,32 @@ class Board extends React.Component {
         clearInterval(timerId);
         document.getElementById('resetImg').src=`${smileyFace}`;
         this.setState({cellArr: this.initCellArr(this.props.height, this.props.width, this.props.mineNum)});
-        for(let i = 0; i < this.state.height; i++) {
-            for(let j = 0; j < this.state.width; j++) {
+        for(let i = 0; i < this.props.height; i++) {
+            for(let j = 0; j < this.props.width; j++) {
                 if(document.querySelector(`[data-row="${i}"][data-col="${j}"]`) !== null) {
                     document.querySelector(`[data-row="${i}"][data-col="${j}"]`).className = "game-cell";
                     document.querySelector(`[data-row="${i}"][data-col="${j}"]`).style.backgroundColor = "#C0C0C0";
                 }
-                this.state.cellArr[i][j].isRevealed = false;
+                var temp = this.state.cellArr[i][j];
+                temp.isRevealed = false;
             }
         }
         document.getElementById('bomb-counter').innerText = this.props.mineNum.toString().padStart(3, '0');
     };
+
+    changeMode = (height, width) => {
+        clearInterval(timerId);
+        document.getElementById('resetImg').src=`${smileyFace}`;
+        for(let i = 0; i < height; i++) {
+            for(let j = 0; j < width; j++) {
+                if(document.querySelector(`[data-row="${i}"][data-col="${j}"]`) !== null) {
+                    document.querySelector(`[data-row="${i}"][data-col="${j}"]`).className = "game-cell";
+                    document.querySelector(`[data-row="${i}"][data-col="${j}"]`).style.backgroundColor = "#C0C0C0";
+                }
+            }
+        }
+        document.getElementById('bomb-counter').innerText = this.props.mineNum.toString().padStart(3, '0');
+    }
 
     render() {
         return(
