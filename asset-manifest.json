@@ -1,0 +1,21 @@
+{
+  "main.css": "/midterm_minesweeper/static/css/main.0458f7ab.chunk.css",
+  "main.js": "/midterm_minesweeper/static/js/main.a0be021b.chunk.js",
+  "main.js.map": "/midterm_minesweeper/static/js/main.a0be021b.chunk.js.map",
+  "runtime~main.js": "/midterm_minesweeper/static/js/runtime~main.ff91e134.js",
+  "runtime~main.js.map": "/midterm_minesweeper/static/js/runtime~main.ff91e134.js.map",
+  "static/js/2.59390ab1.chunk.js": "/midterm_minesweeper/static/js/2.59390ab1.chunk.js",
+  "static/js/2.59390ab1.chunk.js.map": "/midterm_minesweeper/static/js/2.59390ab1.chunk.js.map",
+  "index.html": "/midterm_minesweeper/index.html",
+  "precache-manifest.3b49eba024dda803fff7405a7c5c8c8b.js": "/midterm_minesweeper/precache-manifest.3b49eba024dda803fff7405a7c5c8c8b.js",
+  "service-worker.js": "/midterm_minesweeper/service-worker.js",
+  "static/css/main.0458f7ab.chunk.css.map": "/midterm_minesweeper/static/css/main.0458f7ab.chunk.css.map",
+  "static/media/index.css": "/midterm_minesweeper/static/media/prstart.65cb344c.ttf",
+  "static/media/easy.png": "/midterm_minesweeper/static/media/easy.2d4abfe0.png",
+  "static/media/flag.png": "/midterm_minesweeper/static/media/flag.15179185.png",
+  "static/media/hard.png": "/midterm_minesweeper/static/media/hard.756d2d33.png",
+  "static/media/medium.png": "/midterm_minesweeper/static/media/medium.6f511e4c.png",
+  "static/media/mine-menu-icon.png": "/midterm_minesweeper/static/media/mine-menu-icon.0006461a.png",
+  "static/media/start.png": "/midterm_minesweeper/static/media/start.11df47db.png",
+  "static/media/window-controls.png": "/midterm_minesweeper/static/media/window-controls.82152538.png"
+}
