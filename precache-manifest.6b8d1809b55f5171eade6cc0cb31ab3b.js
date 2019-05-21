@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "7d14c74dbca95b621fe8",
+    "revision": "60fcc8d139185afa9559",
     "url": "/midterm_minesweeper/static/css/main.0458f7ab.chunk.css"
   },
   {
-    "revision": "7d14c74dbca95b621fe8",
-    "url": "/midterm_minesweeper/static/js/main.facc7a67.chunk.js"
+    "revision": "60fcc8d139185afa9559",
+    "url": "/midterm_minesweeper/static/js/main.9bec585d.chunk.js"
   },
   {
     "revision": "2b1135ba21612722ea96",
@@ -40,12 +40,12 @@ self.__precacheManifest = [
     "url": "/midterm_minesweeper/static/media/window-controls.82152538.png"
   },
   {
-    "revision": "582cac299faac1ab8d378a6488ba2ced",
-    "url": "/midterm_minesweeper/static/media/digital-dismay.582cac29.otf"
-  },
-  {
     "revision": "65cb344c64e3d29ae35396789de64c2e",
     "url": "/midterm_minesweeper/static/media/prstart.65cb344c.ttf"
+  },
+  {
+    "revision": "582cac299faac1ab8d378a6488ba2ced",
+    "url": "/midterm_minesweeper/static/media/digital-dismay.582cac29.otf"
   },
   {
     "revision": "e3a9c893cd405aca729270d3cbc49559",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/midterm_minesweeper/static/media/start.11df47db.png"
   },
   {
-    "revision": "8e20e38ad7b0c6ddc81c8f553301ba15",
+    "revision": "9e0ea8b40d9a5372c4bf629541125483",
     "url": "/midterm_minesweeper/index.html"
   }
 ];
