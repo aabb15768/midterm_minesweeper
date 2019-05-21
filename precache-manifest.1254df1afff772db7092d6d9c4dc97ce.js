@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0b082057d527e7b27134",
+    "revision": "7d14c74dbca95b621fe8",
     "url": "/midterm_minesweeper/static/css/main.0458f7ab.chunk.css"
   },
   {
-    "revision": "0b082057d527e7b27134",
-    "url": "/midterm_minesweeper/static/js/main.a0be021b.chunk.js"
+    "revision": "7d14c74dbca95b621fe8",
+    "url": "/midterm_minesweeper/static/js/main.facc7a67.chunk.js"
   },
   {
     "revision": "2b1135ba21612722ea96",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/midterm_minesweeper/static/media/start.11df47db.png"
   },
   {
-    "revision": "336132b5ff25ce39c4979d33be4b6a1e",
+    "revision": "8e20e38ad7b0c6ddc81c8f553301ba15",
     "url": "/midterm_minesweeper/index.html"
   }
 ];
