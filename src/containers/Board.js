@@ -373,6 +373,7 @@ class Board extends React.Component {
                 this.state.cellArr[i][j].isRevealed = false;
             }
         }
+        document.getElementById('bomb-counter').innerText = this.props.mineNum.toString().padStart(3, '0');
     };
 
     render() {
