@@ -1,13 +1,13 @@
 {
   "main.css": "/midterm_minesweeper/static/css/main.0458f7ab.chunk.css",
-  "main.js": "/midterm_minesweeper/static/js/main.9bec585d.chunk.js",
-  "main.js.map": "/midterm_minesweeper/static/js/main.9bec585d.chunk.js.map",
+  "main.js": "/midterm_minesweeper/static/js/main.2856705c.chunk.js",
+  "main.js.map": "/midterm_minesweeper/static/js/main.2856705c.chunk.js.map",
   "runtime~main.js": "/midterm_minesweeper/static/js/runtime~main.ff91e134.js",
   "runtime~main.js.map": "/midterm_minesweeper/static/js/runtime~main.ff91e134.js.map",
-  "static/js/2.59390ab1.chunk.js": "/midterm_minesweeper/static/js/2.59390ab1.chunk.js",
-  "static/js/2.59390ab1.chunk.js.map": "/midterm_minesweeper/static/js/2.59390ab1.chunk.js.map",
+  "static/js/2.9cd5913a.chunk.js": "/midterm_minesweeper/static/js/2.9cd5913a.chunk.js",
+  "static/js/2.9cd5913a.chunk.js.map": "/midterm_minesweeper/static/js/2.9cd5913a.chunk.js.map",
   "index.html": "/midterm_minesweeper/index.html",
-  "precache-manifest.6b8d1809b55f5171eade6cc0cb31ab3b.js": "/midterm_minesweeper/precache-manifest.6b8d1809b55f5171eade6cc0cb31ab3b.js",
+  "precache-manifest.65efc0576f89a91e2430c2e4a5402045.js": "/midterm_minesweeper/precache-manifest.65efc0576f89a91e2430c2e4a5402045.js",
   "service-worker.js": "/midterm_minesweeper/service-worker.js",
   "static/css/main.0458f7ab.chunk.css.map": "/midterm_minesweeper/static/css/main.0458f7ab.chunk.css.map",
   "static/media/index.css": "/midterm_minesweeper/static/media/prstart.65cb344c.ttf",
@@ -16,6 +16,5 @@
   "static/media/hard.png": "/midterm_minesweeper/static/media/hard.756d2d33.png",
   "static/media/medium.png": "/midterm_minesweeper/static/media/medium.6f511e4c.png",
   "static/media/mine-menu-icon.png": "/midterm_minesweeper/static/media/mine-menu-icon.0006461a.png",
-  "static/media/start.png": "/midterm_minesweeper/static/media/start.11df47db.png",
   "static/media/window-controls.png": "/midterm_minesweeper/static/media/window-controls.82152538.png"
 }
